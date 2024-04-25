@@ -1,0 +1,94 @@
+<mvc:View controllerName="listtable.controller.ListTable"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+
+<!-- 
+multi select or single select
+<List
+		id="ProductList"
+		headerText="Products"
+		items="{/}" 
+		mode="MultiSelect"
+		includeItemInSelection="true"
+		>
+
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="Products" level="H2" />
+					<ToolbarSpacer />
+					<Select
+						selectedKey="MultiSelect"
+						change=".handleSelectChange">
+						<items>
+							<core:Item key="None" text="No Selection" />
+							<core:Item key="SingleSelect" text="Single Selection" />
+							<core:Item key="MultiSelect" text="Multi Selection" />
+						</items>
+					</Select>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+ -->
+<!-- 
+	//Simple list Data
+		<List
+		id="ProductList"
+		items="{/}" 
+		mode="Delete"
+		delete="handleDelete"
+		enableBusyIndicator="true"
+		headerText="Products"
+		>
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="Products" level="H2" />
+					<ToolbarSpacer />
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+
+		<items>
+			<StandardListItem
+				title="{ProductID}"
+			description="{TypeCode}"/>
+		</items>
+	</List>
+</mvc:View> -->
+
+
+
+
+<Page>
+		
+			<OverflowToolbar>
+				<Title id="Product"></Title>
+				 <SearchField id="searchField" width="auto"  search=".onLiveSearchData"
+				  liveChange=".onliveChange"/>
+			</OverflowToolbar>
+		
+		<List
+			id="ProductList"
+			headerText="Products List"
+			updateFinished=".onUpdateFinish"
+			items="{/}"
+			selectionChange=".onSelectionChange"
+			mode="None"
+			growing="true"
+			growingThreshold="50"
+			includeItemInSelection="true"
+			>
+			<infoToolbar>
+				<OverflowToolbar visible="true" id="idInfoToolbar">
+					<Label id="idFilterLabel" />
+				</OverflowToolbar>
+			
+			</infoToolbar>
+			<StandardListItem
+				title="{ProductID}"
+			description="{TypeCode}"/>
+		</List>
+	</Page>
+</mvc:View>
